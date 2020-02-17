@@ -80,15 +80,16 @@
                         y,
                         sign: this.sign
                     };
-                    this.storage.push(this.move);
-                    this.countMoving++;
-
                     this.win = this.checkWinner(x, y, this.sign);
+                    if (!this.win) {
+                        this.storage.push(this.move);
+                    }
+                   
+                    this.countMoving++;
 
                     if (this.countMoving >= this.size * this.size || this.win) {
                         this.finish = true;
                     }    
-        
                 }
             },
 
